@@ -222,9 +222,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 function generateBarChart(skillsData) {
    
-    const svgWidth = 800;
+    const svgWidth = 850;
     const svgHeight = 600;
-    const barWidth = 50;
+    const barWidth = 27;
     const maxHeight = 500;
 
     let svg = '<svg width="' + svgWidth + '" height="' + svgHeight + '">';
@@ -242,7 +242,7 @@ function generateBarChart(skillsData) {
 
     let xPosition = 100;
     for (let skill of skillsData) {
-        svg += '<text x="' + (xPosition + 10) + '" y="' + (svgHeight - 30) + '" fill="white" transform="rotate(20 ' + (xPosition + 10) + ',' + (svgHeight - 30) + ')">' + skill.type.substring(6) + '</text>';
+        svg += '<text x="' + (xPosition + 10) + '" y="' + (svgHeight - 30) + '" fill="white" transform="rotate(25 ' + (xPosition + 10) + ',' + (svgHeight - 30) + ')">' + skill.type.substring(6) + '</text>';
         xPosition += (barWidth + 20);
         
     }
