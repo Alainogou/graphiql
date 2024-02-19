@@ -9,9 +9,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
        
         fetchUserData()
         .then(userData => {
-          generateMainContent(userData)
+          if (userData){
+            generateMainContent(userData)
+          }else{
+            localStorage.removeItem('jwtToken')
+            window.location.href="/index.html"   
+          }
+         
         
-            
           let log=document.querySelector("#logout")
           if (log){
                 log.addEventListener("click", ()=>{
@@ -164,7 +169,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
           <div class="col-div-3">
               <div class="box">
                   <i class="fa fa-list box-icon"></i>
-                  <p>${(userData.totalXp.aggregate.sum.amount/1000).toFixed(0)}<br/><span>Total XP</span></p>
+                  <p>${(userData.totalXp.aggregate.sum.amount/1000).toFixed(0)} KB<br/><span>Total XP</span></p>
               </div>
           </div>
           <div class="col-div-3">
@@ -198,7 +203,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                       ${generateBarChart(userData.user[0].skills)}
                       <br/>	
                   </div>    
-              </div>
+              </div>s
           </div>
       
           <div class="col-div-4">
